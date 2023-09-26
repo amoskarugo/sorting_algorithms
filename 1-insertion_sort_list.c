@@ -30,18 +30,18 @@ void swap(listint_t **head, listint_t **current, listint_t *next_node)
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *iter, *insert_at, *tmp;
+	listint_t *i, *insert_at, *tmp;
 
 	if (list == NULL || *list == NULL || (*list)->next == NULL)
 		return;
 
-	for (iter = (*list)->next; iter != NULL; iter = tmp)
+	for (i = (*list)->next; i != NULL; i = tmp)
 	{
-		tmp = iter->next;
-		insert_at = iter->prev;
-		while (insert_at != NULL && iter->n < insert_at->n)
+		tmp = i->next;
+		insert_at = i->prev;
+		while (insert_at != NULL && i->n < insert_at->n)
 		{
-			swap(list, &insert_at, iter);
+			swap(list, &insert_at, i);
 			print_list((const listint_t *)*list);
 		}
 	}
